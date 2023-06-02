@@ -22,10 +22,12 @@ function merge(arr1, arr2) {
   return results;
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
 
 module.exports = { merge, mergeSort };
-
-var arr1 = [1, 3, 4, 5];
-var arr2 = [2, 4, 6, 8];
-merge(arr1, arr2);
